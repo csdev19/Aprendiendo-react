@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Hello extends React.Component {
+
+      constructor() {
+        super();
+        this.state = {
+          message: "mi shania (from state)!",
+          counter: 0
+        };
+        this.updateMessage = this.updateMessage.bind(this);
+        this.updateCounter = this.updateCounter.bind(this);
+      }
+
+      updateMessage() {
+        this.setState({
+          message: "my friend (from changed state)!"
+        });
+      }
+
+      updateCounter() {
+        console.log('update', this.state.counter)
+        this.setState({
+          counter: this.state.counter + 1
+        });
+      }
+
+      render() {
+          return (
+            <div>
+              <h1>
+                Hello {this.props.message}!!
+              </h1>
+              <p>{ this.state.message }</p>
+              <button onClick={this.updateMessage}>
+                Con un evento click
+              </button>
+              <button onClick={this.updateCounter}>
+                Boton { this.state.counter }!
+              </button>
+            </div>
+          );
+      }
+    }
+
+    ReactDOM.render(
+        <Hello
+        message="shania"
+        />,
+        document.getElementById("root")
+    );
+
+  </script>
+</body>
+</html>
