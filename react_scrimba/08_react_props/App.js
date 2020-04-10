@@ -14,4 +14,8 @@ function App() {
   )
 }
 
+// Es importante recalcar que los PROPS son inmutables osea no pueden cambiar
+
+// Los PROPS son la unica forma de pasar informacion de un componente a otro
 export default App;
+
