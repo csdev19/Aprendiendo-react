@@ -4,7 +4,7 @@ import CheckBox from './components/CheckBox'
 
 function App() {
     return (
-        <div>
+        <div className="app">
             <CheckBox />
             <CheckBox />
             <CheckBox />
