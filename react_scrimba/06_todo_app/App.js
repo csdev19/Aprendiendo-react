@@ -1,15 +1,55 @@
-import React from 'react'
+import React from "react"
+import TodoItem from "./TodoItem"
+import todosData from "./todosData"
 
-import CheckBox from './components/CheckBox'
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+        todos: todosData
+    };
 
-function App() {
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(id) {
+    this.setState(prevState => {
+      const newState = prevState.todos.map(todo => {
+          if (todo.id === id) {
+            console.log('todo.completed', todo.completed)
+            return {
+              ...todo,
+              completed: !todo.completed
+            }
+          } else {
+            return {
+              ...todo
+            }
+          }
+      });
+
+      return {
+        todos: newState
+      };
+    });
+  }
+
+  render() {
+    const todoItems = this.state.todos.map(item => {
+      return <TodoItem
+                key={item.id}
+                item={item}
+                handleChange={this.handleChange}
+              />
+    })
+
     return (
-        <div className="app">
-            <CheckBox />
-            <CheckBox />
-            <CheckBox />
-        </div>
+      <div className="todo-list">
+        {todoItems}
+      </div>
     )
+  }
+
 }
 
 export default App;
