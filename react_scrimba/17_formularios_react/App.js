@@ -5,6 +5,9 @@ import React from "react";
 // https://reactjs.org/docs/forms.html
 
 
+// Paquete para formularios en React
+// https://jaredpalmer.com/formik/
+
 /**
  * Los formularios en React son especiales porque acostumbran a tener una continua actualizacion de su informacion
  * Esta informacion se guarda en el state de la siguiente manera segun su documentacion
@@ -14,7 +17,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      nombre: ''
+      nombre: '',
+      apellido: ''
     }
     // Creamos un metodo que este ligado a los cambios del input
     this.handleNombre = this.handleNombre.bind(this)
@@ -59,7 +63,8 @@ class App extends React.Component {
       <div>
         <form>
           <input type="text" name="nombre" placeholder="Nombre " onChange={ this.handleNombre } />
-          <input type="text" name="apellido" placeholder="Apellido" onChange={ this.handleNombre } />
+          {/* Tambien podemos agregar un listener de eventos de la sgte manera */}
+          <input type="text" name="apellido" placeholder="Apellido" value={ this.state.apellido } />
           <input type="text" name="edad" placeholder="Edad" onChange={ this.handleNombre } />
         </form>
         <div>
