@@ -35,6 +35,32 @@ class App extends React.Component {
 
   }
 
+  /**
+   * NUEVOS METODOS DE REACT
+   */
+
+
+
+  static getDerivedStateFromProps(props, state) {
+    // Retorna el nuevo estado actualizado basado en las propiedades
+    // Y es probable que no lo usemos WTF ?
+    // https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+  }
+
+  getSnapshotBeforeUpdate() {
+    // Es una backup del estado actual del componente
+    // https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
+  }
+
+  // Este ciclo de vida seria como en ngOnChange
+  // Pero nos traera como parametro las propiedades anteriores y el estado anterior
+  componentDidUpdate(prevProp, prevState) {
+    // podemos establecer logicas como si un estado cambio modificalo
+    if (prevState.atributo !== this.state.atributo) {
+      // Has el cambio
+    }
+  }
+
   render() {
     return (
       <div>
