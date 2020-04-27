@@ -24,12 +24,17 @@ class App {
 function App() {
   // Me devuelve un array de dos valores 
   // 1. Lo que mandamos como parametro que seria el state
-  // 2. Una funcion
-  const [msj] = React.useState('hola mundo');
+  // 2. Una funcion que nos retorna un pseudo setState como si fuera un class based
+  const [msj, setState] = React.useState('hola mundo');
+
+  changeHola() {
+    setState(currentState => currentState + ' una letra')
+  }
 
   return (
     <div>
       El msj es el siguiente : { msj }
+      <button onClick={ changeHola }>Cambio de msj</button>
     </div>
   )
 }
